@@ -9,3 +9,5 @@ Dependencies:
 * ESP8266TrueRandom.h, ESP8266TrueRandom for random number functionality (https://github.com/jjssoftware/ESP8266TrueRandom)
 
 A basic usage example of this library is here: https://github.com/jjssoftware/ESP8266TOTP/blob/master/examples/basic.ino
+
+A video of an implementation in my own web firmware is here: https://www.youtube.com/watch?v=cNaeyIER_IE
