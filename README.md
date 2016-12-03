@@ -10,4 +10,4 @@ Dependencies:
 
 A basic usage example of this library is here: https://github.com/jjssoftware/ESP8266TOTP/blob/master/examples/basic.ino
 
-A video of an implementation in my own web firmware is here: https://www.youtube.com/watch?v=cNaeyIER_IE
+A video of an implementation in my own web firmware is here: https://www.youtube.com/watch?v=EsNRM1DoO44
