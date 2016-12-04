@@ -18,13 +18,13 @@
 
 #include "ESP8266TOTP.h"
 
-//RFC 4648 defined 'standard' Base32 base32Alphabet
+//RFC4648 defined 'standard' Base32 base32Alphabet
 unsigned char ESP8266TOTP::base32Alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
-//Google char QR code uri parts
-const char* ESP8266TOTP::googleChartUriPre = "https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=200x200&chld=M|0&chl=otpauth://totp/user@";
-const char* ESP8266TOTP::googleChartUriSecret = "%3Fsecret%3D";
-const char* ESP8266TOTP::googleChartUriIssuer = "%26issuer%3D";
+//QR code uri parts
+const char* ESP8266TOTP::qrCodeUriPre = "otpauth://totp/user@";
+const char* ESP8266TOTP::qrCodeUriSecret = "?secret=";
+const char* ESP8266TOTP::qrCodeUriIssuer = "&issuer=";
 
 /*
  * returns a new secret key of made up of random bytes of TOTP_SECRET_BYTE_COUNT length
@@ -114,7 +114,7 @@ bool ICACHE_FLASH_ATTR ESP8266TOTP::IsTokenValid(uint64_t epoch, uint8_t* keyByt
 }
 
 /*
- * returns a Google Authenticator key uri format compatible uri for the given keyBytes
+ * returns a Google Authenticator key uri for the given keyBytes
  * intended for rendering a QR code in a web page.
  * https://github.com/google/google-authenticator/wiki/Key-Uri-Format
  *
@@ -132,11 +132,11 @@ String ICACHE_FLASH_ATTR ESP8266TOTP::GetQrCodeImageUri(uint8_t* keyBytes, Strin
 
 		char* base32Key = reinterpret_cast<char*>(&data32);
 
-		outStr = String(ESP8266TOTP::googleChartUriPre);
+		outStr = String(ESP8266TOTP::qrCodeUriPre);
 		outStr += hostname;
-		outStr += ESP8266TOTP::googleChartUriSecret;
+		outStr += ESP8266TOTP::qrCodeUriSecret;
 		outStr += String(base32Key);
-		outStr += ESP8266TOTP::googleChartUriIssuer;
+		outStr += ESP8266TOTP::qrCodeUriIssuer;
 		outStr += issuer;
 
 	}

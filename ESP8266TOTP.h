@@ -45,9 +45,9 @@ public:
 	static String ICACHE_FLASH_ATTR GetQrCodeImageUri(uint8_t* keyBytes, String hostname, String issuer);
 private:
 	static unsigned char base32Alphabet[];
-	static const char* googleChartUriPre;
-	static const char* googleChartUriSecret;
-	static const char* googleChartUriIssuer;
+	static const char* qrCodeUriPre;
+	static const char* qrCodeUriSecret;
+	static const char* qrCodeUriIssuer;
 };
 
 #endif /* ESP8266TOTP_H_ */
