@@ -33,7 +33,7 @@
 struct totpData {
 	bool enabled;								//TOTP global on/off switch
 	uint8_t keyBytes[TOTP_SECRET_BYTE_COUNT];	//secret key bytes
-} __attribute__ ((__packed__));
+};
 
 class ESP8266TOTP {
 public:
